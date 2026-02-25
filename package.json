@@ -1,6 +1,6 @@
 {
   "name": "scan-debug-skill",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "ScanDebugSkill for Trae IDE - Easily install debugging skills via npx",
   "bin": {
     "scan-debug-skill": "./bin/install.js"
@@ -15,7 +15,7 @@
     "scan"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "files": [
     "bin",
     "css",
