@@ -1,0 +1,26 @@
+{
+  "name": "scan-debug-skill",
+  "version": "1.0.1",
+  "description": "ScanDebugSkill for Trae IDE - Easily install debugging skills via npx",
+  "bin": {
+    "scan-debug-skill": "./bin/install.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "trae",
+    "skill",
+    "debug",
+    "scan"
+  ],
+  "author": "",
+  "license": "ISC",
+  "files": [
+    "bin",
+    "css",
+    "html",
+    "js",
+    "SKILL.md"
+  ]
+}
