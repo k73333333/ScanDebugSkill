@@ -16,7 +16,7 @@ description: HTML/Template 代码 SonarQube 扫描问题修复指南，涵盖可
 
 ### 基础规范
 - 注释与文档规范 (中文注释) → 详见 [comments-documentation](reference/comments-documentation.md)
-- HTML 语义化结构 (Lang, Doctype, Table) → 详见 [semantic-structure](reference/semantic-structure.md)
+- HTML 语义化结构 (Lang, Doctype, Table, Nesting) → 详见 [semantic-structure](reference/semantic-structure.md)
 
 ### 元素规范
 - 图片替代文本 (Image Alt Text) → 详见 [image-alt-text](reference/image-alt-text.md)
