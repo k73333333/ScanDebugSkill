@@ -1,7 +1,7 @@
 # scan-debug-skill
 
 这个包包含了一套用于 IDE 的代码扫描与调试技能（Scan & Debug Skill）。
-支持 **Trae** 和 **Cursor** 两种 IDE。
+主要应用于sonar和奇安信的常见问题快速修复
 
 ## 使用方法
 

@@ -1,3 +1,15 @@
+---
+name: 扫描问题
+description: SonarQube和安全扫描的时候触发。分析并修复 SonarQube 扫描出的代码问题，确保符合安全与质量规范。当用户要求修复 Sonar 问题时调用。
+triggers:
+  - sonar问题修复
+  - 奇安信问题修复
+  - sonar问题扫描
+  - 奇安信问题扫描
+  - 扫描问题修复
+  - 扫描代码问题
+---
+
 # Sonar 代码质量与安全修复技能集
 
 本项目包含针对前端不同技术栈（JS/TS, CSS, HTML）的 SonarQube 修复技能指南。
