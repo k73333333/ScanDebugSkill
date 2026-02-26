@@ -8,6 +8,11 @@ triggers:
   - 奇安信问题扫描
   - 扫描问题修复
   - 扫描代码问题
+  - scan-debug-skill扫描
+  - scan-debug-skill
+  - scan-debug
+license: MIT
+author: [scan-debug-skill](https://github.com/k73333333/ScanDebugSkill)
 ---
 
 # Sonar 代码质量与安全修复技能集
@@ -30,3 +35,21 @@ triggers:
 
 ## 使用说明
 请点击上述链接进入相应的技能目录查看详细指南。
+
+## 扫描结果概览输出规则
+
+当用户提供扫描报告或提及多个代码问题时，应首先以表格形式输出扫描结果概览，遵循以下规范：
+
+- **表格列**：必须包含 类别、严重程度、问题描述、涉及文件。
+- **严重程度标识**：使用 🔴 高危、🟡 中、🔵 低、⚪ 建议 进行视觉区分。
+- **示例格式**：
+
+| 类别 | 严重程度 | 问题描述 | 涉及文件 |
+| :--- | :--- | :--- | :--- |
+| JS/TS 安全 | 🔴 高危 | window.open 缺少 noopener (反向 Tabnabbing 漏洞) | src/views/Assistant.vue |
+| 代码质量 | 🔴 高危 | 遗留 debugger 调试断点 | vite.config.ts |
+| 代码质量 | 🟡 中 | 遗留 console.log 调试日志 | vite.config.ts |
+| CSS 规范 | 🟡 中 | 滥用 !important 破坏级联规则 | src/assets/assistant.css |
+| JS/TS 规范 | 🟡 中 | 使用原生 confirm 阻塞交互 | src/views/Assistant.vue |
+| Vue 规范 | 🔵 低 | v-for 使用 index 作为 key (潜在渲染风险) | src/views/Assistant.vue |
+| 代码风格 | ⚪ 建议 | 变量命名可优化为更具语义化的名称 | src/utils/format.js |
