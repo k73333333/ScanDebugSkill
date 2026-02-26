@@ -9,6 +9,7 @@
     *   优先使用 `async/await`。
     *   所有 Promise 链必须以 `.catch()` 结束，或在 `try...catch` 块中处理错误。
 *   **冗余条件判断**：当 `if` 和 `else` 分支执行逻辑完全一致时，应移除条件判断，直接执行公共逻辑。
+*   **空值检查 (Null Safety)**：在访问对象的深层属性前，必须进行非空检查，推荐使用可选链操作符 (`?.`) 和空值合并操作符 (`??`)，避免 "Cannot read property of undefined" 错误。
 
 ## 示例：认知复杂度与魔法数字
 
@@ -59,5 +60,38 @@ function handleRedirect() {
 
   // 修复后：直接执行通用逻辑
   navigateTo('/home');
+}
+```
+
+## 示例：空指针异常修复
+
+**场景**：代码运行时抛出 "TypeError: Cannot read property 'name' of undefined"，或 Sonar 提示可能存在空指针访问风险。
+
+**修复后代码**：
+```javascript
+/**
+ * 获取用户显示名称
+ * @param {Object} user - 用户对象
+ * @returns {string} - 用户名称或默认值
+ */
+function getUserDisplayName(user) {
+  // Non-Compliant: 如果 user 或 user.profile 为空，将导致程序崩溃
+  // return user.profile.name;
+
+  // Compliant: 使用可选链 (?.) 安全访问，并提供默认值 (??)
+  return user?.profile?.name ?? '未知用户';
+}
+
+/**
+ * 处理订单列表
+ * @param {Array} orders - 订单数组
+ */
+function processOrders(orders) {
+  // Compliant: 确保 orders 存在且为数组后再进行遍历
+  if (Array.isArray(orders) && orders.length > 0) {
+    orders.forEach(order => {
+      console.log(`订单ID: ${order?.id}`);
+    });
+  }
 }
 ```
