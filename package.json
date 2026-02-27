@@ -1,7 +1,7 @@
 {
   "name": "scan-debug-skill",
-  "version": "1.0.2",
-  "description": "ScanDebugSkill for Trae IDE - Easily install debugging skills via npx",
+  "version": "1.0.5",
+  "description": "A set of code scanning and debugging skills, primarily for quick fixes of common SonarQube and Qianxin issues. | 一套代码扫描与调试技能，主要应用于 SonarQube 和奇安信常见问题的快速修复。",
   "bin": {
     "scan-debug-skill": "./bin/install.js"
   },
@@ -12,7 +12,10 @@
     "trae",
     "skill",
     "debug",
-    "scan"
+    "scan",
+    "sonar 扫描和问题修复",
+    "奇安信 扫描和问题修复",
+    "代码扫描修复skill"
   ],
   "author": "",
   "license": "MIT",

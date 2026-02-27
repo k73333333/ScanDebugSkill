@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 /*
- * @Author: fukaidong fukaidong@aspirecn.com
+ * @Author: fukaidong
  * @Date: 2026-02-25 15:50:10
- * @LastEditors: fukaidong fukaidong@aspirecn.com
- * @LastEditTime: 2026-02-25 16:15:00
+ * @LastEditors: fukaidong qiji777@yeah.net
+ * @LastEditTime: 2026-02-26 18:33:02
  * @Description: scan-debug-skill 安装脚本 (ScanDebugSkill Install Script)
  *               包含更新处理逻辑：安装前清理旧版本核心目录，确保无残留文件。
  */

@@ -38,6 +38,17 @@ author: [scan-debug-skill](https://github.com/k73333333/ScanDebugSkill)
 
 请点击上述链接进入相应的技能目录查看详细指南。
 
+### 引用指南
+
+在编辑器中使用 AI 助手生成或修复代码时，可以通过以下方式引用本规范：
+
+1.  **代码生成**：在生成代码时，显式要求遵循 `scan-debug-skill` 规范。
+    > "生成一段 API 请求代码，请遵循 `scan-debug-skill` 中的 JS 安全规范。"
+2.  **问题修复**：在修复代码问题时，要求 AI 参考本技能集。
+    > "请按照 `scan-debug-skill` 修复当前代码的 Sonar 问题。"
+3.  **项目规则配置**：在项目的 `.cursorrules` 或 `.trae/rules` 文件中配置全局引用，使 AI 默认遵循此规范。
+    > "Follow the `scan-debug-skill` standards for all code generation and fixes."
+
 ## 扫描结果概览输出规则
 
 当用户提供扫描报告或提及多个代码问题时，应首先以表格形式输出扫描结果概览，遵循以下规范：
