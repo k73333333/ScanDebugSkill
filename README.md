@@ -44,3 +44,21 @@ When using AI to generate or fix code in the editor, you can reference this stan
 
 您可以在 `.cursorrules` 或 `.trae/rules` 文件中添加以下规则，以确保 AI 始终遵循此规范：
 You can add the following rules to your `.cursorrules` or `.trae/rules` file to ensure AI always follows this standard:
+```
+- When fixing issues, refer to the specific rules in the `scan-debug-skill` documentation.
+```
+
+## 注意事项 / Notes
+
+⚠️ **资源消耗提醒 (Resource Consumption Warning)**
+
+对整个项目进行全量扫描并自动修复可能会消耗大量的 AI 编码请求次数（Tokens）。
+Scanning and automatically fixing the entire project may consume a large amount of AI coding requests (Tokens).
+
+**建议做法 (Recommended Practice)**：
+1.  **按需引用**：在生成新代码时，直接引用本技能规范（如上文 "AI 辅助编码" 所示），从源头保证代码质量。
+2.  **局部修复**：针对单个文件或特定文件夹进行扫描和修复，避免全量操作，以节约资源。
+
+**Recommendation**:
+1.  **Reference on Demand**: When generating new code, directly reference this skill standard (as shown in "AI Assisted Coding" above) to ensure code quality from the start.
+2.  **Partial Fix**: Scan and fix specific files or folders instead of the entire project to save resources.
