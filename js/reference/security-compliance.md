@@ -3,7 +3,7 @@
 ## 规则详情
 *   **XSS 防范**：
     *   严禁使用 `eval()`、`new Function()`。
-    *   慎用 `v-html` (Vue) 或 `dangerouslySetInnerHTML` (React)，必须确保内容已经过 DOMPurify 等库的清洗。
+    *   处理用户输入的 HTML 内容时，必须确保内容已经过 DOMPurify 等库的清洗，避免直接插入未过滤的 HTML。
 *   **敏感信息**：代码中禁止硬编码密码、Token、密钥（AK/SK）、内网 IP 等敏感信息，应通过环境变量或配置接口获取。
 *   **日志安全**：
     *   禁止在生产环境日志中输出敏感信息（如密码、Token 等）。
@@ -23,7 +23,7 @@
 
 // Compliant: 使用环境变量
 // 说明：确保环境变量在构建或运行时已正确注入
-const API_KEY = process.env.VUE_APP_API_KEY;
+const API_KEY = process.env.API_KEY;
 ```
 
 ## 示例：日志安全与异常处理

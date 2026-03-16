@@ -22,8 +22,8 @@ author: [scan-debug-skill](https://github.com/k73333333/ScanDebugSkill)
 ## 目录结构
 
 *   **[JS/TS 修复技能](./js/SKILL.md)**
-    *   包含 JavaScript、TypeScript、Vue、React 的修复规则。
-    *   涉及：注释规范、最佳实践、框架规范、安全合规。
+    *   包含 JavaScript、TypeScript 的修复规则。
+    *   涉及：注释规范、最佳实践、安全合规。
 
 *   **[CSS 修复技能](./css/SKILL.md)**
     *   包含 CSS、SASS、LESS 的样式修复规则。

@@ -19,6 +19,16 @@
 *   **魔法数字 (Magic Numbers)**：避免直接使用无意义的数字（0 和 1 除外），应将其定义为具名常量。
 *   **冗余条件判断**：当 `if` 和 `else` 分支执行逻辑完全一致时，应移除条件判断，直接执行公共逻辑。
 *   **空值检查 (Null Safety)**：在访问对象的深层属性前，必须进行非空检查，推荐使用可选链操作符 (`?.`) 和空值合并操作符 (`??`)，避免 "Cannot read property of undefined" 错误。
+*   **性能优化**：
+    *   **正则表达式预编译**：避免在循环内创建 `RegExp` 实例，应提取到循环外部或模块作用域。
+    *   **避免嵌套循环**：3 层以上的嵌套循环（O(n³)）必须优化，建议使用 `flatMap` 或 Map 索引。
+    *   **字符串拼接**：循环内避免使用 `+=` 拼接大量字符串，应使用数组 `push` 后 `join`。
+*   **异常处理**：
+    *   **禁止 Finally Return**：`finally` 块中严禁使用 `return`，否则会覆盖 `try/catch` 中的异常抛出。
+    *   **流程控制**：禁止使用异常（try-catch）来处理正常的业务流程控制（如判断 JSON 格式，应先用正则预判）。
+*   **状态管理**：
+    *   **状态回滚**：前端乐观更新（Optimistic UI）时，若请求失败必须回滚状态。
+    *   **避免全局锁**：避免使用单一的全局 `loading` 状态控制并发请求，应使用独立的 loading 变量。
 
 ## 示例：认知复杂度与魔法数字
 
@@ -101,6 +111,45 @@ function processOrders(orders) {
     orders.forEach(order => {
       console.log(`订单ID: ${order?.id}`);
     });
+  }
+}
+```
+
+## 示例：性能优化与异常处理
+
+**场景**：Sonar 提示 "Regular expressions should not be created in a loop" 或 "Jump statements should not occur in finally blocks"。
+
+**修复后代码**：
+```javascript
+// 1. 正则预编译
+// Non-Compliant: 循环内重复创建正则
+// items.forEach(item => { if (new RegExp('^\\d{4}').test(item)) ... })
+
+// Compliant: 提取为常量
+const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
+items.forEach(item => {
+  if (DATE_PATTERN.test(item.date)) { /* ... */ }
+});
+
+// 2. 字符串拼接优化
+// Non-Compliant: 使用 += 拼接
+// let html = ""; list.forEach(i => html += `<li>${i}</li>`);
+
+// Compliant: 使用 Array.join
+const html = list.map(i => `<li>${i}</li>`).join("");
+
+// 3. 禁止 Finally Return
+async function submitData() {
+  try {
+    await api.post('/submit');
+  } catch (error) {
+    console.error('提交失败', error);
+    return Promise.reject(error);
+  } finally {
+    // Non-Compliant: return true; // 这会吞掉上面的 reject
+    
+    // Compliant: 仅做清理工作
+    this.loading = false;
   }
 }
 ```
