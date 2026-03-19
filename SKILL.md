@@ -1,16 +1,6 @@
 ---
-name: 扫描问题
-description: SonarQube和安全扫描的时候触发。分析并修复 SonarQube 扫描出的代码问题，确保符合安全与质量规范。当用户要求修复 Sonar 问题时调用。
-triggers:
-  - sonar问题修复
-  - 奇安信问题修复
-  - sonar问题扫描
-  - 奇安信问题扫描
-  - 扫描问题修复
-  - 扫描代码问题
-  - scan-debug-skill扫描
-  - scan-debug-skill
-  - scan-debug
+name: scan-debug-skill
+description: "分析并修复 SonarQube 和奇安信扫描出的代码问题，确保符合安全与质量规范。Invoke when user asks to fix Sonar/Qianxin issues, scan code, or mentions scan-debug-skill."
 license: MIT
 author: [scan-debug-skill](https://github.com/k73333333/ScanDebugSkill)
 ---
