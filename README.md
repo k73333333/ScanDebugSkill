@@ -20,8 +20,8 @@ npx scan-debug-skill
 运行后，脚本会提示您选择安装目标：
 After running, the script will prompt you to select an installation target:
 
-1.  **Trae**：安装到 `.trae/scan-debug-skill` (Install to `.trae/scan-debug-skill`)
-2.  **Cursor**：安装到 `.cursor/scan-debug-skill` (Install to `.cursor/scan-debug-skill`)
+1.  **Trae**：安装到 `.trae/skills/scan-debug-skill` (Install to `.trae/skills/scan-debug-skill`)
+2.  **Cursor**：安装到 `.cursor/skills/scan-debug-skill` (Install to `.cursor/skills/scan-debug-skill`)
 3.  **Custom**：安装到指定目录 (Install to a specified directory)
 
 ### 包含的内容 / Contents

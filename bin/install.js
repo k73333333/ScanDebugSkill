@@ -4,7 +4,7 @@
  * @Author: fukaidong
  * @Date: 2026-02-25 15:50:10
  * @LastEditors: fukaidong qiji777@yeah.net
- * @LastEditTime: 2026-02-26 18:33:02
+ * @LastEditTime: 2026-04-14 14:35:17
  * @Description: scan-debug-skill 安装脚本 (ScanDebugSkill Install Script)
  *               包含更新处理逻辑：安装前清理旧版本核心目录，确保无残留文件。
  */
@@ -133,8 +133,8 @@ if (hasCursor && !hasTrae) {
 // 若两者都存在，默认保持为 1 (Trae)
 
 console.log('请选择要安装的目标 IDE (Please select target IDE):');
-console.log(`1. Trae   (.trae/scan-debug-skill)   ${hasTrae ? '[Detected]' : ''}`);
-console.log(`2. Cursor (.cursor/scan-debug-skill) ${hasCursor ? '[Detected]' : ''}`);
+console.log(`1. Trae   (.trae/skills/scan-debug-skill)   ${hasTrae ? '[Detected]' : ''}`);
+console.log(`2. Cursor (.cursor/skills/scan-debug-skill) ${hasCursor ? '[Detected]' : ''}`);
 console.log('3. Custom (指定目录/Custom Directory)');
 
 rl.question(`请输入选项 (1/2/3) [默认: ${defaultChoice} (${defaultText})]: `, (answer) => {
@@ -161,20 +161,20 @@ rl.question(`请输入选项 (1/2/3) [默认: ${defaultChoice} (${defaultText})]
   
   // 选项 1：安装到 Trae
   if (choice === '1') {
-    targets.push(path.join(cwd, '.trae', 'scan-debug-skill'));
+    targets.push(path.join(cwd, '.trae', 'skills', 'scan-debug-skill'));
   }
   
   // 选项 2：安装到 Cursor
   if (choice === '2') {
-    targets.push(path.join(cwd, '.cursor', 'scan-debug-skill'));
+    targets.push(path.join(cwd, '.cursor', 'skills', 'scan-debug-skill'));
   }
 
   // 如果没有有效选择（且不是3），回退到默认
   if (targets.length === 0) {
     if (defaultChoice === '2') {
-        targets.push(path.join(cwd, '.cursor', 'scan-debug-skill'));
+        targets.push(path.join(cwd, '.cursor', 'skills', 'scan-debug-skill'));
     } else {
-        targets.push(path.join(cwd, '.trae', 'scan-debug-skill'));
+        targets.push(path.join(cwd, '.trae', 'skills', 'scan-debug-skill'));
     }
   }
 
